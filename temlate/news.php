@@ -21,91 +21,59 @@ get_header();
             <h2 class="title"><span>Новости </span>учреждения</h2>
 
             <ul class="news__list">
-                <li>
-                    <a href="#">
-                        <div class="news__img image-wrapper">
-                            <img src="<?php echo get_template_directory_uri() ?>/src//img/news/img-2.png" alt="">
-                        </div>
-                        <div class="news__description">
-                            <h3>Каких запахов боятся тараканы?</h3>
-                            <p>Куда сложнее не допустить их повторного появления. Избавиться от вредителей навсегда
-                                поможет эффективный защитный барьер и организация профилактических мероприятий от
-                                нашествия прусаков. Чтобы их разработать, можно воспользоваться информацией о том, чего
-                                боятся тараканы. При обнаружении перечисленных факторов...</p>
-                            <p class="news__date">12.02.2023</p>
-                        </div>
-                    </a>
-                </li>
+                <?php
 
-                <li>
-                    <a href="#">
-                        <div class="news__img image-wrapper">
-                            <img src="<?php echo get_template_directory_uri() ?>/src//img/news/img-1.png" alt="">
-                        </div>
-                        <div class="news__description">
-                            <h3>Каких запахов боятся тараканы?</h3>
-                            <p>Порой кажется, что избавиться от тараканов попросту невозможно...Порой кажется, что
-                                избавиться от тараканов попросту невозможно..</p>
-                            <p class="news__date">12.02.2023</p>
-                        </div>
-                    </a>
-                </li>
+                // Настраиваем запрос
+                $args = array(
+                    'cat' => 5, // ID рубрики
+                    'posts_per_page' => 6, // Количество постов на странице
+                );
 
-                <li>
-                    <a href="#">
-                        <div class="news__img image-wrapper">
-                            <img src="<?php echo get_template_directory_uri() ?>/src//img/news/img-1.png" alt="">
-                        </div>
-                        <div class="news__description">
-                            <h3>Каких запахов боятся тараканы?</h3>
-                            <p>Порой кажется, что избавиться от тараканов попросту невозможно...</p>
-                            <p class="news__date">12.02.2023</p>
-                        </div>
-                    </a>
-                </li>
+                $query = new WP_Query($args);
 
-                <li>
-                    <a href="#">
-                        <div class="news__img image-wrapper">
-                            <img src="<?php echo get_template_directory_uri() ?>/src//img/news/img-1.png" alt="">
-                        </div>
-                        <div class="news__description">
-                            <h3>Каких запахов боятся тараканы?</h3>
-                            <p>Порой кажется, что избавиться от тараканов попросту невозможно...</p>
-                            <p class="news__date">12.02.2023</p>
-                        </div>
-                    </a>
-                </li>
+                if ($query->have_posts()):
+                    while ($query->have_posts()):
+                        $query->the_post(); ?>
 
-                <li>
-                    <a href="#">
-                        <div class="news__img image-wrapper">
-                            <img src="<?php echo get_template_directory_uri() ?>/src//img/news/img-1.png" alt="">
-                        </div>
-                        <div class="news__description">
-                            <h3>Каких запахов боятся тараканы?</h3>
-                            <p>Порой кажется, что избавиться от тараканов попросту невозможно...</p>
-                            <p class="news__date">12.02.2023</p>
-                        </div>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <div class="news__img image-wrapper">
-                            <img src="<?php echo get_template_directory_uri() ?>/src//img/news/img-2.png" alt="">
-                        </div>
-                        <div class="news__description">
-                            <h3>Каких запахов боятся тараканы?</h3>
-                            <p>Куда сложнее не допустить их повторного появления. Избавиться от вредителей навсегда
-                                поможет эффективный защитный барьер и организация профилактических мероприятий от
-                                нашествия прусаков. Чтобы их разработать, можно воспользоваться информацией о том, чего
-                                боятся тараканы. При обнаружении перечисленных факторов...</p>
-                            <p class="news__date">12.02.2023</p>
-                        </div>
-                        <a href="#">
-                </li>
+                        <li>
+                            <a href="<?php the_permalink(); ?>">
+                                <div class="news__img image-wrapper">
+                                    <?php the_post_thumbnail(''); ?>
+                                </div>
+                                <div class="news__description">
+                                    <h3><?php the_title(); ?></h3>
+                                    <p><?php the_excerpt(); ?></p>
+                                    <p class="news__date"><?php echo get_the_date(); ?></p>
+                                </div>
+                            </a>
+                        </li>
+                    <?php endwhile;
+                else:
+                    echo 'Нет постов в этой рубрике.';
+                endif;
+                wp_reset_postdata();
+                ?>
             </ul>
+
+            <?php
+            // Пагинация
+            $big = 999999999; // Уникальное число для замены
+            ?>
+            <div class="pagination-wrapper">
+                <?php echo paginate_links(
+                    array(
+                        'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                        'format' => '?paged=%#%',
+                        'current' => max(1, get_query_var('paged')),
+                        'total' => $query->max_num_pages,
+                        'prev_text' => __('&#8592;'),
+                        'next_text' => __('&#8594;'),
+                        'end_size' => 1,
+                        'mid_size' => 2,
+                    )
+                );
+                ?>
+            </div>
         </div>
     </section>
 
