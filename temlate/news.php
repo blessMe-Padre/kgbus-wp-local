@@ -22,8 +22,6 @@ get_header();
 
             <ul class="news__list">
                 <?php
-
-                // Настраиваем запрос
                 $args = array(
                     'cat' => 5, // ID рубрики
                     'posts_per_page' => 6, // Количество постов на странице
@@ -41,15 +39,17 @@ get_header();
                                     <?php the_post_thumbnail(''); ?>
                                 </div>
                                 <div class="news__description">
-                                    <h3><?php the_title(); ?></h3>
-                                    <p><?php the_excerpt(); ?></p>
+                                    <div>
+                                        <h3><?php the_title(); ?></h3>
+                                        <p><?php the_excerpt(); ?></p>
+                                    </div>
                                     <p class="news__date"><?php echo get_the_date(); ?></p>
                                 </div>
                             </a>
                         </li>
                     <?php endwhile;
                 else:
-                    echo 'Нет постов в этой рубрике.';
+                    echo 'Новостей нет';
                 endif;
                 wp_reset_postdata();
                 ?>
