@@ -1,0 +1,328 @@
+/* Импорт шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+
+
+/* Импорт кастомных стилей для компонентов */
+@import './block/button.css';
+@import './block/menu-button.css';
+@import './block/menu.css';
+@import './block/swiper.css';
+@import './block/sliders.css';
+@import './block/decor.css';
+@import './block/scrool-top.css';
+@import './block/video.css';
+@import './block/breadcrumbs.css';
+@import './block/creatures.css';
+@import './block/sections.css';
+
+/* Импорт стилей для страницы "Об учреждении" */
+@import './block/info_box.css';
+@import './block/history_box.css';
+@import './block/gallery_box.css';
+@import './block/sertificates_box.css';
+@import './block/faq_box.css';
+@import './block/reviews_box.css';
+@import './block/banner_box.css';
+@import './block/news_box.css';
+@import './block/map_box.css';
+
+@import './block/services-menu.css';
+@import './block/header.css';
+@import './block/animations.css';
+
+@import './block/hero.css';
+@import './block/popup.css';
+@import './block/roached.css';
+@import './block/title.css';
+@import './block/services.css';
+@import './block/about.css';
+@import './block/tools.css';
+@import './block/sales.css';
+@import './block/main-form.css';
+@import './block/gos-uslugi.css';
+@import './block/footer.css';
+@import './block/service-hero.css';
+@import './block/about-service.css';
+@import './block/service-description.css';
+@import './block/price.css';
+@import './block/how.css';
+@import './block/insects.css';
+@import './block/rats.css';
+@import './block/bacteria-services.css';
+@import './block/price-section.css';
+@import './block/spec-section.css';
+@import './block/news.css';
+@import './block/products.css';
+@import './block/404.css';
+@import './block/cookies.css';
+
+
+/* Импорт TailWind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Зарегистрируйте пользовательское семейство шрифтов и сообщите браузеру, где его найти. */
+@font-face {
+    font-family: 'involve';
+    src: url('../src/fonts/Involve-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'involve';
+    src: url('../src/fonts/Involve-Bold.ttf');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'involve';
+    src: url('../src/fonts/Involve-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'involve';
+    src: url('../src/fonts/Involve-SemiBold.ttf');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: var(--font-family);
+        color: var(--black);
+        background: linear-gradient(166deg, #FFF 5.27%, rgba(255, 255, 255, 0.00) 78.75%);
+        font-weight: var(--font-weight);
+    }
+}
+
+@layer components {
+    .container {
+        @apply max-w-[1440px]
+    }
+}
+
+/* Переменные */
+:root {
+    /* Основные цвета */
+    --black: #292e35;
+    --white: #ffffff;
+    --green: #6cb778;
+    --dark-green: #3c7a59;
+    --blur-green: #4d8f57;
+    --gray: #b5c2d7;
+    --light-gray: #ecf3f7;
+    --dark-gray: #3a414c;
+    --blue: #a6cfff;
+    --blur-gray: #858994;
+
+    /* Основной текст */
+    --font-family: 'involve', sans-serif;
+    --font-size: 16px;
+    --font-weight: 400;
+
+    /* Кнопки */
+    --button-bg-color: var(--green);
+    --button-bg-color-hover: var(--dark-green);
+    --button-bg-color-disabled: var(--gray);
+    --button-second-bg-color: var(--white);
+    --button-second-bg-color-hover: var(--green);
+    --button-second-bg-color-disabled: var(--dark-green);
+    --button-text-color: var(--white);
+    --button-text-color-hover: var(--white);
+    --button-text-color-disabled: var(--white);
+    --button-second-text-color: var(--green);
+    --button-second-text-color-hover: var(--white);
+    --button-second-text-color-disabled: var(--white);
+    --slide-button: var(--gray);
+    --slide-button-hover: var(--green);
+    --slide-button-action: var(--dark-green);
+
+    /* Ссылки */
+    --link-text-color: var(--gray);
+    --link-text-color-hover: var(--green);
+    --link-text-color-disabled: var(--dark-green);
+
+    /* Длительность анимаций (указывать в секундах) */
+    --duration-add-animate-class: 2;
+    /* Должно быть столько же, сколько в переменной animate_time в файле js/module/add_class_for_animation.js */
+    --duration-hover: 0.5;
+}
+
+/* Директивы data-scroll */
+[data-scroll] {
+    transition: opacity 1s
+}
+
+[data-scroll=in] {
+    opacity: 1
+}
+
+[data-scroll=out] {
+    opacity: 0
+}
+
+/* Прочие классы */
+
+.h-wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: flex-start;
+}
+
+h2 {
+    font-size: 40px;
+    line-height: 52px;
+    margin-bottom: 50px;
+}
+
+h3 {
+    font-size: 30px;
+    line-height: 39px;
+    margin-bottom: 40px;
+}
+
+h2,
+h3 {
+    font-weight: 500;
+}
+
+h2 span,
+h3 span {
+    font-weight: 700;
+}
+
+p {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.lock {
+    overflow: hidden;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.show_all {
+    font-family: 'involve';
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 52px;
+    display: flex;
+    align-items: center;
+    color: #b5c2d7;
+}
+
+.show_all::after {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 18px;
+    background-color: #b5c2d7;
+    mask-image: url(../src/img/arrow.svg);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    margin-left: 12px;
+}
+
+.link {
+    transition: color 0.3s ease;
+}
+
+.link:hover {
+    color: var(--green);
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 30px;
+        line-height: 39px;
+        margin-bottom: 35px;
+    }
+
+    h3 {
+        font-size: 32px;
+        line-height: 42px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .show_all {
+        line-height: 39px;
+    }
+}
+
+@media (max-width: 375px) {
+    .h-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    h3 {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    p {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .show_all {
+        justify-self: center;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Классы для ховера на изображение */
+
+.image-wrapper {
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+}
+
+.image-wrapper img:hover {
+    transform: scale(1.1);
+}
+
+.container-min {
+    max-width: 935px;
+    padding: 20px;
+    margin: 0 auto;
+}
