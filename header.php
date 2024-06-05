@@ -25,10 +25,11 @@
                 <div class="flex justify-between items-center">
                     <div class="flex py-5">
                         <a href="/">
-                            <img src="<?php echo get_template_directory_uri() ?>/src/img/logo.svg" alt="">
+                            <img class="header-logo" src="<?php echo get_template_directory_uri() ?>/src/img/logo.svg"
+                                alt="">
                         </a>
                     </div>
-                    <div class="flex gap-5">
+                    <div class="flex gap-2 sm:gap-5">
                         <div class="header-contact flex gap-2 sm:gap-5">
                             <div class="flex gap-0 sm:gap-4 header-contact-1 relative">
                                 <img src="<?php echo get_template_directory_uri() ?>/src/img/icons/pin.svg" width="17"
@@ -53,10 +54,8 @@
                                 <a class="text-xs sm:text-lg font-bold link" href="tel:+84234338229">8(4234)33-82-29</a>
                             </div>
                         </div>
-                        <!-- сюда вставить шорткод "версии для слабовидящих"  -->
-                        <div class="py-2 px-5 bg-green rounded-3xl text-sm sm:text-base ml-5 sm:ml-0">
-                            Версия для слабовидящих
-                        </div>
+
+                        <?php echo do_shortcode('[bvi text="Версия для слабовидящих"]') ?>
                     </div>
                 </div>
 

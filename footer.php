@@ -2,9 +2,9 @@
     <h2 class="visually-hidden">Контакты</h2>
     <div class="container">
         <div class="footer__header">
-            <img src="<?php echo get_template_directory_uri() ?>/src/img/logo-footer.png" width="178" height="50"
-                alt="логотип">
-            <div class="flex items-center justify-between gap-5">
+            <img class="footer-logo" src="<?php echo get_template_directory_uri() ?>/src/img/logo-footer.png"
+                width="178" height="50" alt="логотип">
+            <div class="flex items-center justify-between gap-2 sm:gap-5">
 
                 <div class="footer-city">
                     <div class="flex gap-0 sm:gap-4">
@@ -21,10 +21,7 @@
                         rel="noopener noreferrer">Схема проезда</a>
                 </div>
 
-                <!-- сюда вставить шорткод "версии для слабовидящих"  -->
-                <div class="py-2 px-5 bg-green rounded-3xl text-sm sm:text-base ml-5 sm:ml-0">
-                    Версия для слабовидящих
-                </div>
+                <?php echo do_shortcode('[bvi text="Версия для слабовидящих"]') ?>
             </div>
         </div>
         <div class="footer-city-div"></div>
