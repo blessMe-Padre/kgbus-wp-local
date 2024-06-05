@@ -2417,6 +2417,10 @@ section+section {
     }
 }
 
+.services-content {
+    padding: 50px 0;
+}
+
 .services-menu {
     position: absolute;
     top: 70px;
