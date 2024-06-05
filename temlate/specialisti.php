@@ -5,7 +5,7 @@ Template Name: Специалисты
 get_header();
 ?>
 <main>
-    <h1 class="visually-hidden">Отдел очаговой и профилактической дезинфекции</h1>
+    <h1 class="visually-hidden">Наши специалисты</h1>
 
     <div class="container">
         <div class="breadcrumbs flex">
@@ -30,6 +30,53 @@ get_header();
 
         </section>
     </div>
+
+    <section class="spec-section mt-8" data-scroll>
+        <div class="container">
+            <h2 class="title font-semibold">Руководство СП «Владивосток»</h2>
+            <ul class="spec-section-list">
+
+                <?php
+                $my_posts = get_posts(
+                    array(
+                        'numberposts' => -1,
+                        'category' => '8',
+                        'orderby' => 'title',
+                        'order' => 'ASC',
+                        'post_type' => 'testimonial2',
+                        'suppress_filters' => true,
+                    )
+                );
+
+                foreach ($my_posts as $post) {
+                    setup_postdata($post);
+                    ?>
+
+                    <li class="spec-item">
+                        <div class="image-wrapper">
+                            <img src="<?= get_field("изображение_специалиста"); ?>" width="190" height="276" alt="avatar">
+                        </div>
+                        <div class="spec-item__description">
+                            <h3><?= get_field("фио_специалиста"); ?></h3>
+                            <p class="spec-item__job"><?= get_field("должность"); ?></p>
+                            <p class="spec-item__text">
+                                Образование: <?= get_field("образование"); ?>
+                            </p>
+                            <p class="spec-item__text">
+                                Специальность: <?= get_field("специальность"); ?>
+                            </p>
+                            <a class="link"
+                                href="tel:<?= get_field("телефон_для_роботов"); ?>"><?= get_field("телефон"); ?></a>
+                        </div>
+                    </li>
+                    <?php
+                }
+                wp_reset_postdata();
+                ?>
+
+            </ul>
+        </div>
+    </section>
 
     <section class="spec-section mt-8" data-scroll>
         <div class="container">
