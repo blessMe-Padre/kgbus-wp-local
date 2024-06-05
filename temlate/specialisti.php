@@ -19,14 +19,15 @@ get_header();
         <section class="job-vacancy" data-scroll>
             <h2 class="visually-hidden">Открыта новая вакансия «Начальник структурного подразделения»</h2>
             <p>Открыта вакансия «Начальник структурного подразделения»</p>
-            <a href="#popup" class="button button--white popup-link">
-                <span>Подать заявку</span>
-                <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                        d="M1 5.25C0.585786 5.25 0.25 5.58579 0.25 6C0.25 6.41421 0.585786 6.75 1 6.75V5.25ZM19.5303 6.53033C19.8232 6.23744 19.8232 5.76256 19.5303 5.46967L14.7574 0.696699C14.4645 0.403806 13.9896 0.403806 13.6967 0.696699C13.4038 0.989593 13.4038 1.46447 13.6967 1.75736L17.9393 6L13.6967 10.2426C13.4038 10.5355 13.4038 11.0104 13.6967 11.3033C13.9896 11.5962 14.4645 11.5962 14.7574 11.3033L19.5303 6.53033ZM1 6.75H19V5.25H1V6.75Z"
-                        fill="#6cb778" />
-                </svg>
-            </a>
+
+            <div class="button-wrapper">
+                <a href="#popup" class="button popup-link">
+                    <span>Подать заявку</span>
+                    <img src="<?php echo get_template_directory_uri() ?>/src/img/icons/arrow-right.svg" width="18"
+                        height="10" alt="Подать заявку">
+                </a>
+            </div>
+
         </section>
     </div>
 
@@ -34,82 +35,62 @@ get_header();
         <div class="container">
             <h2 class="title font-semibold">Отдел очаговой и профилактической дезинфекции</h2>
             <ul class="spec-section-list">
-                <li class="spec-item">
-                    <div class="image-wrapper">
-                        <img src="<?php echo get_template_directory_uri() ?>/src//img/avatar-1.webp" width="190"
-                            height="276" alt="avatar">
-                    </div>
-                    <div class="spec-item__description">
-                        <h3>Камнева Марина Станиславовна</h3>
-                        <p class="spec-item__job">Заведующий отделом, врач-дезинфектолог</p>
-                        <p class="spec-item__text">
-                            Образование: Высшее - специалитет, врач, медико-профилактическое дело, 2013 г., ГОУ ВПО ТГМУ
-                            Минздрава России
-                        </p>
-                        <p class="spec-item__text">
-                            Специальность: Организация здравоохранения и общественное здоровье, 2022 г.,
-                            дезинфектология, 2019 г.
-                        </p>
-                        <a class="link" href="tel:+74234338229">8 (4234) 33-82-29</a>
-                    </div>
-                </li>
-                <li class="spec-item">
-                    <div class="image-wrapper">
-                        <img src="<?php echo get_template_directory_uri() ?>/src//img/avatar-1.webp" width="190"
-                            height="276" alt="avatar">
-                    </div>
-                    <div class="spec-item__description">
-                        <h3>Камнева Марина Станиславовна</h3>
-                        <p class="spec-item__job">Заведующий отделом, врач-дезинфектолог</p>
-                        <p class="spec-item__text">
-                            Образование: Высшее - специалитет, врач, медико-профилактическое дело, 2013 г., ГОУ ВПО ТГМУ
-                            Минздрава России
-                        </p>
-                        <p class="spec-item__text">
-                            Специальность: Организация здравоохранения и общественное здоровье, 2022 г.,
-                            дезинфектология, 2019 г.
-                        </p>
-                        <a class="link" href="tel:+74234338229">8 (4234) 33-82-29</a>
-                    </div>
-                </li>
-                <li class="spec-item">
-                    <div class="image-wrapper">
-                        <img src="<?php echo get_template_directory_uri() ?>/src//img/avatar-1.webp" width="190"
-                            height="276" alt="avatar">
-                    </div>
-                    <div class="spec-item__description">
-                        <h3>Камнева Марина Станиславовна</h3>
-                        <p class="spec-item__job">Заведующий отделом, врач-дезинфектолог</p>
-                        <p class="spec-item__text">
-                            Образование: Высшее - специалитет, врач, медико-профилактическое дело, 2013 г., ГОУ ВПО ТГМУ
-                            Минздрава России
-                        </p>
-                        <p class="spec-item__text">
-                            Специальность: Организация здравоохранения и общественное здоровье, 2022 г.,
-                            дезинфектология, 2019 г.
-                        </p>
-                        <a class="link" href="tel:+74234338229">8 (4234) 33-82-29</a>
-                    </div>
-                </li>
-                <li class="spec-item">
-                    <div class="image-wrapper">
-                        <img src="<?php echo get_template_directory_uri() ?>/src//img/avatar-1.webp" width="190"
-                            height="276" alt="avatar">
-                    </div>
-                    <div class="spec-item__description">
-                        <h3>Камнева Марина Станиславовна</h3>
-                        <p class="spec-item__job">Заведующий отделом, врач-дезинфектолог</p>
-                        <p class="spec-item__text">
-                            Образование: Высшее - специалитет, врач, медико-профилактическое дело, 2013 г., ГОУ ВПО ТГМУ
-                            Минздрава России
-                        </p>
-                        <p class="spec-item__text">
-                            Специальность: Организация здравоохранения и общественное здоровье, 2022 г.,
-                            дезинфектология, 2019 г.
-                        </p>
-                        <a class="link" href="tel:+74234338229">8 (4234) 33-82-29</a>
-                    </div>
-                </li>
+
+                <?php
+                $my_posts = get_posts(
+                    array(
+                        'numberposts' => -1,
+                        'category' => '7',
+                        'orderby' => 'title',
+                        'order' => 'ASC',
+                        'post_type' => 'testimonial2',
+                        'suppress_filters' => true,
+                    )
+                );
+
+                foreach ($my_posts as $post) {
+                    setup_postdata($post);
+                    ?>
+
+                    <li class="spec-item">
+                        <div class="image-wrapper">
+                            <img src="<?= get_field("изображение_специалиста"); ?>" width="190" height="276" alt="avatar">
+                        </div>
+                        <div class="spec-item__description">
+                            <h3><?= get_field("фио_специалиста"); ?></h3>
+                            <p class="spec-item__job"><?= get_field("должность"); ?></p>
+                            <p class="spec-item__text">
+                                Образование: <?= get_field("образование"); ?>
+                            </p>
+                            <p class="spec-item__text">
+                                Специальность: <?= get_field("специальность"); ?>
+                            </p>
+                            <a class="link"
+                                href="tel:<?= get_field("телефон_для_роботов"); ?>"><?= get_field("телефон"); ?></a>
+                        </div>
+                    </li>
+                    <!-- 
+                    <li>
+                        <div class="products__img image-wrapper">
+                            <img src="<?= get_field("изображение_товара"); ?>" width="197" height="186" alt="product">
+                        </div>
+                        <h3><?php the_title(); ?></h3>
+                        <input class="hidden-product" type="hidden" value="<?php the_title(); ?>">
+                        <p class="price"><?= get_field("цена_товара"); ?></p>
+
+                        <div class="button-wrapper button-wrapper--width">
+                            <a href="#popup-product" class="button popup-link">
+                                <span>Заказать услуги</span>
+                                <img src="<?php echo get_template_directory_uri() ?>/src/img/icons/arrow-right.svg"
+                                    width="18" height="10" alt="кнопка заказать услугу">
+                            </a>
+                        </div>
+                    </li> -->
+                    <?php
+                }
+                wp_reset_postdata();
+                ?>
+
             </ul>
         </div>
     </section>

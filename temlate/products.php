@@ -25,74 +25,42 @@ get_header();
             </p>
 
             <ul class="products__list">
-                <li>
-                    <div class="products__img image-wrapper">
-                        <img src="<?php echo get_template_directory_uri() ?>/src//img/product.jpg" width="197"
-                            height="186" alt="product">
-                    </div>
+                <?php
+                $my_posts = get_posts(
+                    array(
+                        'numberposts' => -1,
+                        'category' => '6',
+                        'orderby' => 'title',
+                        'order' => 'ASC',
+                        'post_type' => 'testimonial',
+                        'suppress_filters' => true,
+                    )
+                );
 
-                    <h3>От тараканов</h3>
-                    <p class="price">3 000 ₽</p>
+                foreach ($my_posts as $post) {
+                    setup_postdata($post);
+                    ?>
 
-                    <div class="products__linl-wrapper">
-                        <a href="#popup" class="button button--large popup-link">
-                            <span>Заказать</span>
-                            <img src="<?php echo get_template_directory_uri() ?>/src//img/icons/arrow-right.svg"
-                                width="18" height="10" alt="кнопка заказать услугу">
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="products__img image-wrapper">
-                        <img src="<?php echo get_template_directory_uri() ?>/src//img/product.jpg" width="197"
-                            height="186" alt="product">
-                    </div>
+                    <li>
+                        <div class="products__img image-wrapper">
+                            <img src="<?= get_field("изображение_товара"); ?>" width="197" height="186" alt="product">
+                        </div>
+                        <h3><?php the_title(); ?></h3>
+                        <input class="hidden-product" type="hidden" value="<?php the_title(); ?>">
+                        <p class="price"><?= get_field("цена_товара"); ?></p>
 
-                    <h3>От тараканов</h3>
-                    <p class="price">3 000 ₽</p>
-
-                    <div class="products__linl-wrapper">
-                        <a href="#popup" class="button button--large popup-link">
-                            <span>Заказать</span>
-                            <img src="<?php echo get_template_directory_uri() ?>/src//img/icons/arrow-right.svg"
-                                width="18" height="10" alt="кнопка заказать услугу">
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="products__img image-wrapper">
-                        <img src="<?php echo get_template_directory_uri() ?>/src//img/product.jpg" width="197"
-                            height="186" alt="product">
-                    </div>
-
-                    <h3>От тараканов</h3>
-                    <p class="price">3 000 ₽</p>
-
-                    <div class="products__linl-wrapper">
-                        <a href="#popup" class="button button--large popup-link">
-                            <span>Заказать</span>
-                            <img src="<?php echo get_template_directory_uri() ?>/src//img/icons/arrow-right.svg"
-                                width="18" height="10" alt="кнопка заказать услугу">
-                        </a>
-                    </div>
-                </li>
-                <li>
-                    <div class="products__img image-wrapper">
-                        <img src="<?php echo get_template_directory_uri() ?>/src//img/product.jpg" width="197"
-                            height="186" alt="product">
-                    </div>
-
-                    <h3>От тараканов</h3>
-                    <p class="price">3 000 ₽</p>
-
-                    <div class="products__linl-wrapper">
-                        <a href="#popup" class="button button--large popup-link">
-                            <span>Заказать</span>
-                            <img src="<?php echo get_template_directory_uri() ?>/src//img/icons/arrow-right.svg"
-                                width="18" height="10" alt="кнопка заказать услугу">
-                        </a>
-                    </div>
-                </li>
+                        <div class="button-wrapper button-wrapper--width">
+                            <a href="#popup-product" class="button popup-link">
+                                <span>Заказать услуги</span>
+                                <img src="<?php echo get_template_directory_uri() ?>/src/img/icons/arrow-right.svg"
+                                    width="18" height="10" alt="кнопка заказать услугу">
+                            </a>
+                        </div>
+                    </li>
+                    <?php
+                }
+                wp_reset_postdata();
+                ?>
             </ul>
         </div>
     </section>
@@ -139,7 +107,7 @@ get_header();
         </div>
     </section>
 
-    <section id="popup" class="popup mt-0">
+    <section id="popup-product" class="popup mt-0">
         <div class="popup__body">
             <div class="popup__content">
                 <button class="popup__btn close-popup" aria-label="Закрыть" tabindex="4">
@@ -148,8 +116,13 @@ get_header();
                         <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#ffffff" />
                     </svg>
                 </button>
-                <h2 class="text-start text-main-black z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">
-                    Закажите звонок</h2>
+                <div class="popup-header">
+                    <p class="text-start text-main-black z-10 mb-0">
+                        Заказ товара</p>
+                    <p>"<span class="product-name-value"></span>"
+                    </p>
+                </div>
+
                 <div>
                     <p class="font-semibold text-lg">Оставьте контакты и менеджер свяжется с вами в
                         ближайшее время</p>

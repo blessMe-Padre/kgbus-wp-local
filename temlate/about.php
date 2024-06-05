@@ -421,183 +421,58 @@ get_header();
     </div>
 
     <div class="section_group">
-        <div class="container">
-            <!-- <section id="banner_box" data-scroll>
-                        <h2 class="visually-hidden">banner</h2>
+        <section id="news_box" data-scroll>
+            <div class="container">
+                <div class="h-wrapper">
+                    <h2>Последние <span>новости учреждения</span></h2>
+                    <a class="show_all" href="/news/">Посмотреть все</a>
+                </div>
 
-                        <a class="banner flex flex-col" href="">
-                            <div class="title">Противодействие коррупции</div>
+                <div class="w-0 min-w-full relative">
+                    <div class="news-swiper swiper">
+                        <ul class="news swiper-wrapper justify-items-stretch">
+                            <?php
+                            $args = array(
+                                'cat' => 5, // ID рубрики
+                                'posts_per_page' => 6, // Количество постов на странице
+                            );
 
-                            <div class="description">Буклет "Против коррупции в здравоохранении"</div>
+                            $query = new WP_Query($args);
 
-                            <div class="button">Посмотреть буклет</div>
-                        </a>
-                    </section> -->
+                            if ($query->have_posts()):
+                                while ($query->have_posts()):
+                                    $query->the_post(); ?>
+                                    <li class="news_once swiper-slide">
+                                        <a href="<?php the_permalink(); ?>">
+                                            <div class="image">
+                                                <?php the_post_thumbnail(''); ?>
+                                            </div>
 
-            <section id="news_box" data-scroll>
-                <div class="container">
-                    <div class="h-wrapper">
-                        <h2>Последние <span>новости учреждения</span></h2>
-                        <a class="show_all" href="#">Посмотреть все</a>
+                                            <div class="info flex flex-col gap-5">
+                                                <h3 class="title"><?php the_title(); ?></h3>
+
+                                                <div class="description"><?php the_excerpt(); ?></div>
+
+                                                <div class="date"><?php echo get_the_date(); ?></div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                <?php endwhile;
+                            else:
+                                echo 'Новостей нет';
+                            endif;
+                            wp_reset_postdata();
+                            ?>
+                        </ul>
                     </div>
 
-                    <div class="w-0 min-w-full relative">
-                        <div class="news-swiper swiper">
-                            <ul class="news swiper-wrapper justify-items-stretch">
-                                <li class="news_once swiper-slide">
-                                    <a href="#">
-                                        <div class="image">
-                                            <img
-                                                src="<?php echo get_template_directory_uri() ?>/src/img/news_once_image.png" />
-                                        </div>
-
-                                        <div class="info flex flex-col gap-5">
-                                            <div class="title">Каких запахов боятся тараканы?</div>
-
-                                            <div class="description">Порой кажется, что избавиться от тараканов попросту
-                                                невозможно...</div>
-
-                                            <div class="date">12.02.2023</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="news_once swiper-slide">
-                                    <a href="#">
-                                        <div class="image">
-                                            <img
-                                                src="<?php echo get_template_directory_uri() ?>/src/img/news_once_image.png" />
-                                        </div>
-
-                                        <div class="info flex flex-col gap-5">
-                                            <div class="title">Каких запахов боятся тараканы?</div>
-
-                                            <div class="description">Порой кажется, что избавиться от тараканов попросту
-                                                невозможно...</div>
-
-                                            <div class="date">12.02.2023</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="news_once swiper-slide">
-                                    <a href="#">
-                                        <div class="image">
-                                            <img
-                                                src="<?php echo get_template_directory_uri() ?>/src/img/news_once_image.png" />
-                                        </div>
-
-                                        <div class="info flex flex-col gap-5">
-                                            <div class="title">Каких запахов боятся тараканы?</div>
-
-                                            <div class="description">Порой кажется, что избавиться от тараканов попросту
-                                                невозможно...</div>
-
-                                            <div class="date">12.02.2023</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="news_once swiper-slide">
-                                    <a href="#">
-                                        <div class="image">
-                                            <img
-                                                src="<?php echo get_template_directory_uri() ?>/src/img/news_once_image.png" />
-                                        </div>
-
-                                        <div class="info flex flex-col gap-5">
-                                            <div class="title">Каких запахов боятся тараканы?</div>
-
-                                            <div class="description">Порой кажется, что избавиться от тараканов попросту
-                                                невозможно...</div>
-
-                                            <div class="date">12.02.2023</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="news_once swiper-slide">
-                                    <a href="#">
-                                        <div class="image">
-                                            <img
-                                                src="<?php echo get_template_directory_uri() ?>/src/img/news_once_image.png" />
-                                        </div>
-
-                                        <div class="info flex flex-col gap-5">
-                                            <div class="title">Каких запахов боятся тараканы?</div>
-
-                                            <div class="description">Порой кажется, что избавиться от тараканов попросту
-                                                невозможно...</div>
-
-                                            <div class="date">12.02.2023</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="news_once swiper-slide">
-                                    <a href="#">
-                                        <div class="image">
-                                            <img
-                                                src="<?php echo get_template_directory_uri() ?>/src/img/news_once_image.png" />
-                                        </div>
-
-                                        <div class="info flex flex-col gap-5">
-                                            <div class="title">Каких запахов боятся тараканы?</div>
-
-                                            <div class="description">Порой кажется, что избавиться от тараканов попросту
-                                                невозможно...</div>
-
-                                            <div class="date">12.02.2023</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="news_once swiper-slide">
-                                    <a href="#">
-                                        <div class="image">
-                                            <img
-                                                src="<?php echo get_template_directory_uri() ?>/src/img/news_once_image.png" />
-                                        </div>
-
-                                        <div class="info flex flex-col gap-5">
-                                            <div class="title">Каких запахов боятся тараканы?</div>
-
-                                            <div class="description">Порой кажется, что избавиться от тараканов попросту
-                                                невозможно...</div>
-
-                                            <div class="date">12.02.2023</div>
-                                        </div>
-                                    </a>
-                                </li>
-
-                                <li class="news_once swiper-slide">
-                                    <a href="#">
-                                        <div class="image">
-                                            <img
-                                                src="<?php echo get_template_directory_uri() ?>/src/img/news_once_image.png" />
-                                        </div>
-
-                                        <div class="info flex flex-col gap-5">
-                                            <div class="title">Каких запахов боятся тараканы?</div>
-
-                                            <div class="description">Порой кажется, что избавиться от тараканов попросту
-                                                невозможно...</div>
-
-                                            <div class="date">12.02.2023</div>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="swiper-buttons">
-                            <div class="swiper-button-prev swiper-button-prev--category"></div>
-                            <div class="swiper-button-next swiper-button-next--category"></div>
-                        </div>
+                    <div class="swiper-buttons">
+                        <div class="swiper-button-prev swiper-button-prev--category"></div>
+                        <div class="swiper-button-next swiper-button-next--category"></div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </div>
 
     <div class="section_group">

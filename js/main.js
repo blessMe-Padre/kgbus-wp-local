@@ -19,6 +19,7 @@ import { initIntersectionObservers } from "./module/intersection_observers.js";
 import { init404 } from "./module/404.js";
 import { cookieConsentChecker } from './module/cookie-consent-checker.js';
 import { initCityChooser } from "./module/city.js";
+import { initPopupInput } from "./module/product-input.js";
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -49,7 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // initAnimateClass();
     initBaguettes();
     initIntersectionObservers();
-
+    initPopupInput();
 
     // DOMContentLoaded..
 

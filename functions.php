@@ -46,3 +46,50 @@ function add_menu()
     register_nav_menu('services', 'навигация Услуги');
 }
 
+// Добавляет вкладку "Продукция" для меню админки Wordpress"
+add_action('init', 'create_post_type');
+function create_post_type()
+{
+    register_post_type(
+        'testimonial',
+        array(
+            'public' => true,
+            'has_archive' => true,
+            'exclude_from_search' => false,
+            'publicly_queryable' => true,
+            'labels' => array(
+                'name' => 'Продукция',
+                'singular_name' => 'Продукция',
+                'menu_name' => 'Продукция',
+                'all_items' => 'Вся продукция',
+            ),
+            'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes'),
+            'taxonomies' => array('category'),
+        )
+    );
+}
+
+// Добавляет вкладку "Специалисты" для меню админки Wordpress"
+add_action('init', 'create_post_type_spec');
+function create_post_type_spec()
+{
+    register_post_type(
+        'testimonial2',
+        array(
+            'public' => true,
+            'has_archive' => true,
+            'exclude_from_search' => false,
+            'publicly_queryable' => true,
+            'labels' => array(
+                'name' => 'Специалисты',
+                'singular_name' => 'Специалисты',
+                'menu_name' => 'Специалисты',
+                'all_items' => 'Все специалисты',
+            ),
+            'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes'),
+            'taxonomies' => array('category'),
+        )
+    );
+}
+
+

@@ -31,6 +31,13 @@ body {
     height: 45px;
 }
 
+.button-wrapper--width a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .button-wrapper a,
 .button-wrapper button {
     position: absolute;
@@ -1258,7 +1265,7 @@ button.swiper-pagination-bullet {
 .breadcrumbs {
     font-size: 14px;
     line-height: 19px;
-    margin-bottom: 36px;
+    margin: 30px 0;
 }
 
 .breadcrumbs a {
@@ -4222,6 +4229,14 @@ section+section {
     border-radius: 20px;
 }
 
+.job-vacancy .button-wrapper {
+    width: 280px;
+}
+
+.job-vacancy .button-wrapper a {
+    border: 1px solid var(--white);
+}
+
 .news__list {
     display: flex;
     flex-wrap: wrap;
@@ -6172,4 +6187,23 @@ p {
     background-color: var(--green);
     color: var(--white);
     border-radius: 6px;
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.popup-header p {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.product-name-value {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
 }
