@@ -6243,3 +6243,27 @@ p {
         height: 14px !important;
     }
 }
+
+/* Стилизация инпута отзывов strong testimonials */
+
+.file__button {
+    height: 45px;
+    font-size: 20px;
+    color: #292e35;
+    background-image: url('./src/img/icons/input-file.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px) center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-right: 50px;
+}
+
+.file__button {
+    display: block;
+    width: 100%;
+    border-radius: 100px;
+    padding: 7.5px 24px 7.5px;
+    background-color: #f5f6f8;
+    font-size: 20px;
+}

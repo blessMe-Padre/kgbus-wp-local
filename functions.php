@@ -93,3 +93,5 @@ function create_post_type_spec()
 }
 
 
+require_once (get_template_directory() . '/util-functions/reviews.php');
+

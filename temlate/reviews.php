@@ -20,7 +20,7 @@ get_header();
             <div class="flex flex-wrap items-center justify-between gap-1 sm:gap-5">
                 <h2 class="title title--reviews"><span>Отзывы </span>наших клиентов</h2>
                 <div class="button-wrapper w-[230px]">
-                    <a href="#popup" class="button popup-link reviews-link">
+                    <a href="#popup-reviews" class="button popup-link reviews-link">
                         <span>Оставить отзыв</span>
                         <img src="<?php echo get_template_directory_uri() ?>/src//img/icons/arrow-right.svg" width="18"
                             height="10" alt="кнопка заказать услугу">
@@ -28,7 +28,9 @@ get_header();
                 </div>
             </div>
 
-            <ul class="reviews reviews-list justify-items-stretch">
+            <?php echo show_reviews(); ?>
+
+            <!-- <ul class="reviews reviews-list justify-items-stretch">
                 <li class="rewiew flex flex-col">
                     <div class="head flex justify-between mb-7">
                         <p class="name">Сергей Витальевич</p>
@@ -113,14 +115,13 @@ get_header();
                         </li>
                     </ul>
                 </li>
-
-            </ul>
+            </ul> -->
 
         </div>
     </section>
 
 </main>
-<section id="popup" class="popup">
+<section id="popup-reviews" class="popup">
     <div class="popup__body">
         <div class="popup__content">
             <button class="popup__btn close-popup" aria-label="Закрыть" tabindex="4">
@@ -129,33 +130,8 @@ get_header();
                     <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#ffffff" />
                 </svg>
             </button>
-            <h2 class="text-start text-main-black z-10 font-normal md:text-4xl text-xl uppercase pb-10 ">
-                Закажите звонок</h2>
-            <div>
-                <p class="font-semibold text-lg max-w-xs">Оставьте контакты и менеджер свяжется с вами в
-                    ближайшее время</p>
-            </div>
-            <div class="form-wrapper">
-                <form action="#" id="form" class="form validate-form flex-col">
-                    <div class="form__item">
-                        <label for="formName">Введите имя</label>
-                        <input id="formName" type="text" name="name">
-                    </div>
-
-                    <div class="form__item">
-                        <label for="formName">Введите номер</label>
-                        <input id="formPhone" type="tel" name="phone">
-                    </div>
-
-
-                    <button type="submit">Заказать звонок</button>
-
-                </form>
-            </div>
-            <p class="form-section__descriptions w-full">Нажимая кнопку “отправить заявку” вы даёте
-                согласие на <a class="underline" href="#" target="_blank" rel="noopener noreferrer">обработку
-                    персональных
-                    данных</a></p>
+            <h2 class="">Оцените качество услуг</h2>
+            <?php echo do_shortcode('[testimonial_view id="1"]'); ?>
         </div>
     </div>
 </section>
