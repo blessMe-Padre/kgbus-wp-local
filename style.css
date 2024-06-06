@@ -6265,7 +6265,55 @@ p {
     }
 }
 
-/* Стилизация инпута отзывов strong testimonials */
+/* Стилизация отзывов strong testimonials */
+
+.popup-reviews__title {
+    font-family: "Involve", sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    color: #292e35;
+    margin-bottom: 20px;
+}
+
+.strong-form-inner {
+    padding: 0 !important;
+}
+
+.required-notice {
+    font-size: 12px !important;
+}
+
+.form-field.field-star_rating {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.form-field.field-star_rating .after {
+    display: none;
+}
+
+.form-field label {
+    font-family: "Involve", sans-serif;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    color: #292e35 !important;
+    margin-bottom: 5px;
+}
+
+#wpmtst_client_name {
+    background: #ecf3f7;
+    border-radius: 6px;
+    height: 50px;
+}
+
+#wpmtst_post_content {
+    background: #ecf3f7;
+    border-radius: 6px;
+    height: 120px;
+    resize: none;
+}
 
 .file__button {
     height: 45px;
@@ -6281,10 +6329,55 @@ p {
 }
 
 .file__button {
-    display: block;
+    display: block !important;
     width: 100%;
     border-radius: 100px;
     padding: 7.5px 24px 7.5px;
     background-color: #f5f6f8;
     font-size: 20px;
+}
+
+.field-wrap {
+    border-radius: 6px;
+    height: 50px;
+}
+
+.form-field.wpmtst-submit {
+    background-color: var(--green);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 30px;
+}
+
+.wpmtst_submit_testimonial {
+    color: var(--white) !important;
+}
+
+@media (max-width: 768px) {
+    .popup-reviews__title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .form-field.field-star_rating {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        margin-bottom: 0;
+    }
+
+    .strong-form .form-field {
+        margin-bottom: 10px !important;
+    }
+
+    .form-field label {
+        font-size: 14px !important;
+        color: #292e35 !important;
+        margin-bottom: 5px;
+    }
+
+    .popup__content {}
 }

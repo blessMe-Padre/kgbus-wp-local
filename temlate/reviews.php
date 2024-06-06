@@ -41,7 +41,7 @@ get_header();
                     <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#ffffff" />
                 </svg>
             </button>
-            <h2 class="">Оцените качество услуг</h2>
+            <h2 class="popup-reviews__title">Оцените качество услуг</h2>
             <?php echo do_shortcode('[testimonial_view id="1"]'); ?>
         </div>
     </div>
